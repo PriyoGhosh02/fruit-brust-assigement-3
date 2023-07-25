@@ -30,6 +30,22 @@
             }
         }
     </script>
+    <!-- slider switching -->
+    <script>
+        // JavaScript/jQuery for sliding between carousel items
+        document.addEventListener('DOMContentLoaded', function () {
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            carouselItems[0].classList.add('block');
+            carouselItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    item.classList.remove('block');
+                    item.classList.add('hidden');
+                    carouselItems[(index + 1) % carouselItems.length].classList.add('block');
+                    carouselItems[(index + 1) % carouselItems.length].classList.remove('hidden');
+                });
+            });
+        });
+    </script>
     <!-- style -->
     <style>
         .font-lato {
@@ -48,23 +64,30 @@
             <div class="navbar bg-[#F85559] rounded-full px-9 text-white">
                 <div class="navbar-start">
                     <div class=" lg:hidden dropdown">
-                      <label tabindex="0" class="btn  btn-ghost btn-circle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 " fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
-                      </label>
-                      <ul tabindex="0" class="menu menu-sm  dropdown-content mt-3 z-[1] p-2 shadow bg-[#F85559] rounded-box w-52">
-                        <li><a>Homepage</a></li>
-                        <li><a>Portfolio</a></li>
-                        <li><a>About</a></li>
-                      </ul>
+                        <label tabindex="0" class="btn  btn-ghost btn-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 " fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h7" />
+                            </svg>
+                        </label>
+                        <ul tabindex="0"
+                            class="menu menu-sm  dropdown-content mt-3 z-[1] p-2 shadow bg-[#F85559] rounded-box w-52">
+                            <li><a>Home</a></li>
+                            <li><a>About Us</a></li>
+                            <li><a>Shope</a></li>
+                            <li><a>All Fruits</a></li>
+                        </ul>
                     </div>
                     <div class="hidden lg:block">
                         <ul tabindex="0" class=" flex justify-between items-center gap-5  ">
-                            <li><a>Homepage</a></li>
-                            <li><a>Portfolio</a></li>
-                            <li><a>About</a></li>
-                          </ul>
+                            <li><a>Home</a></li>
+                            <li><a>About Us</a></li>
+                            <li><a>Shope</a></li>
+                            <li><a>All Fruits</a></li>
+                        </ul>
                     </div>
-                  </div>
+                </div>
                 <div class="navbar-center">
                     <a class=" flex justify-center items-center gap-3 font-bold text-4xl"> <img class="h-14"
                             src="./images/logo.png" alt=""> Fruit Burst </a>
@@ -75,7 +98,7 @@
                             <div class="text-black relative hidden md:block">
                                 <input type="text" placeholder="Search" im
                                     class="input  input-bordered  w-24 md:w-auto" />
-                               <img src="./images/Sc.png " class="absolute top-2 right-3" alt="">
+                                <img src="./images/Sc.png " class="absolute top-2 right-3" alt="">
                             </div>
                         </div>
                     </div>
@@ -83,9 +106,105 @@
         </nav>
 
         <!-- banner -->
-        <section>
-            
+        <section class="mt-14 ">
+            <!-- Slider carousel -->
+            <div class="carousel w-full hero lg:h-[550px] ">
+                <!-- slide 1 -->
+                <div id="slide1" class="carousel-item relative w-full">
+
+                    <div class="relative">
+                        <!-- Background image -->
+                        <img src="./images/banner1.png" class="w-full" />
+                        <!-- Background overlay using linear-gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#070505] to-[rgba(18, 18, 18, 0.00)]"></div>
+                    </div>
+
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide4" class="btn btn-circle btn-ghost text-white bg-black">❮</a>
+                        <a href="#slide2" class="btn btn-circle btn-ghost text-white bg-black">❯</a>
+                    </div>
+                  <!-- Add information on the slider -->
+                  <div class="absolute w-full flex justify-center items-center text-center top-2 lg:top-48 text-white">
+                    <div class="w-3/6 ">
+                        <h1 class="font-extrabold text-3xl lg:text-7xl  ">Exotic tastes at your doorstep</h1>
+                        <p class="text-sm lg:text-xl my-5 lg:my-7">We supply highly quality organic products</p>
+                        <button class="btn border-none text-white bg-[#F85559]">Shope Now</button>
+                    </div>
+                </div>
+
+                </div>
+
+                <!-- slide 2 -->
+                <div id="slide2" class="carousel-item relative w-full">
+                    <div class="relative">
+                        <!-- Background image -->
+                        <img src="./images/banner2.png" class="w-full" />
+                        <!-- Background overlay using linear-gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#070505] to-[rgba(18, 18, 18, 0.00)]"></div>
+                    </div>
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide1" class="btn btn-circle btn-ghost text-white bg-black">❮</a>
+                        <a href="#slide3" class="btn btn-circle btn-ghost text-white bg-black">❯</a>
+                    </div>
+                 <!-- Add information on the slider -->
+                 <div class="absolute w-full flex justify-center items-center text-center top-2 lg:top-48 text-white">
+                    <div class="w-3/6 ">
+                        <h1 class="font-extrabold text-3xl lg:text-7xl  ">Exotic tastes at your doorstep</h1>
+                        <p class="text-sm lg:text-xl my-5 lg:my-7">We supply highly quality organic products</p>
+                        <button class="btn border-none text-white bg-[#F85559]">Shope Now</button>
+                    </div>
+                </div>
+
+                </div>
+
+                <!-- slide 3 -->
+                <div id="slide3" class="carousel-item relative w-full">
+                    <div class="relative">
+                        <!-- Background image -->
+                        <img src="./images/banner3.png" class="w-full" />
+                        <!-- Background overlay using linear-gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#070505] to-[rgba(18, 18, 18, 0.00)]"></div>
+                    </div>
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide2" class="btn btn-circle btn-ghost text-white bg-black">❮</a>
+                        <a href="#slide4" class="btn btn-circle btn-ghost text-white bg-black">❯</a>
+                    </div>
+                 <!-- Add information on the slider -->
+                 <div class="absolute w-full flex justify-center items-center text-center top-2 lg:top-48 text-white">
+                    <div class="w-3/6 ">
+                        <h1 class="font-extrabold text-3xl lg:text-7xl  ">Exotic tastes at your doorstep</h1>
+                        <p class="text-sm lg:text-xl my-5 lg:my-7">We supply highly quality organic products</p>
+                        <button class="btn border-none text-white bg-[#F85559]">Shope Now</button>
+                    </div>
+                </div>
+
+                </div>
+
+                <!-- slide 4 -->
+                <div id="slide4" class="carousel-item relative w-full">
+                    <div class="relative">
+                        <!-- Background image -->
+                        <img src="./images/banner4.png" class=" w-full" />
+                        <!-- Background overlay using linear-gradient -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#070505] to-[rgba(18, 18, 18, 0.00)]"></div>
+                    </div>
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#slide3" class="btn btn-circle btn-ghost text-white bg-black">❮</a>
+                        <a href="#slide1" class="btn btn-circle btn-ghost text-white bg-black">❯</a>
+                    </div>
+                    <!-- Add information on the slider -->
+                    <div class="absolute w-full flex justify-center items-center text-center top-2 lg:top-48 text-white">
+                        <div class="w-3/6 ">
+                            <h1 class="font-extrabold text-3xl lg:text-7xl  ">Exotic tastes at your doorstep</h1>
+                            <p class="text-sm lg:text-xl my-5 lg:my-7">We supply highly quality organic products</p>
+                            <button class="btn border-none text-white bg-[#F85559]">Shope Now</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </section>
+
     </header>
 
     <!-- Main part -->
